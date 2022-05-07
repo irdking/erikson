@@ -130,11 +130,6 @@ func NewScrapedSource(i time.Duration, s Scraper)  ScrapedSource {
 
 	return ScrapedSource {c, t, s} 	
 }
-type SocksLB struct {
-	source Source 
-	proxies []Node 
-	mu sync.RWMutex 
-} 
 
 
 
@@ -142,19 +137,6 @@ type SocksLB struct {
 
 
 
-
-// updater loop
-//might have issues with rwmutex down the line 
-func (s *SocksLB) updater() {
-	for {
-		state := <- s.source.C()
-
-		s.mu.Lock() 
-		s.proxies = state
-		s.mu.Unlock()
-	}
-
-}
 
 
 
