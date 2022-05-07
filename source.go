@@ -1,6 +1,5 @@
 package erikson
 import "time"
-import "sync"
 import "errors"
 
 
