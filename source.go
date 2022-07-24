@@ -31,6 +31,14 @@ func (p *Peer) Metrics() map[string]float64 {
 	return p.metrics
 }
 
+func (p *Peer) WithLabels(l Labels) {
+	p.labels = l
+}
+
+func (p *Peer) WithMetrics(m Metrics) {
+	p.metrics = m
+}
+
 func NewPeer(addr string) Peer {
 	metrics := map[string]float64{}
 	labels := map[string]string{}
