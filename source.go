@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-type Labels map[string]string
-type Metrics map[string]float64
+type Labels = map[string]string
+type Metrics = map[string]float64
 
 type Node interface {
 	Address() string
@@ -22,12 +22,12 @@ type Peer struct {
 	labels  map[string]string
 }
 
-func (p *Peer) Labels() map[string]string {
+func (p *Peer) Labels() Labels {
 	return p.labels
 }
 
 func (p *Peer) Address() string { return p.address }
-func (p *Peer) Metrics() map[string]float64 {
+func (p *Peer) Metrics() Metrics {
 	return p.metrics
 }
 
